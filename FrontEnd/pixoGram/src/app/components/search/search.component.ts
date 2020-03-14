@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit {
 
   searchUser(data) {
     console.log(data);
-    this.userService.getUserByName(data).subscribe(
+      this.userService.getUserByName(data).subscribe(
       name => {
         console.log(name);
         this.user=JSON.parse(JSON.stringify(name));
@@ -52,13 +52,16 @@ export class SearchComponent implements OnInit {
     this.fllw = new FollowModel(Number(myuid),data);
     this.userService.follow(this.fllw).subscribe((flw)=>
     console.log(flw)
+    
     )
 
   }
 
   logout(){
+    alert("Bye " + sessionStorage.getItem("username"))
     sessionStorage.clear();
     console.log("logout")
+    window.location.reload()
   }
 
 

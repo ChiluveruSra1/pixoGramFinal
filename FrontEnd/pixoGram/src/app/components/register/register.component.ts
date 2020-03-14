@@ -28,13 +28,11 @@ export class RegisterComponent implements OnInit {
   submitted:boolean=false
   file: File
   
-
   //firebase profile pic attributes
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   getDownloadURL: Observable<string>;
  
-
   constructor(private fb: FormBuilder, private userService: UserService,private afStorage: AngularFireStorage,private router: Router) {}
 
   ngOnInit(): void {
@@ -74,6 +72,8 @@ export class RegisterComponent implements OnInit {
 
     //registration success
     this.router.navigate(['/login']);
+
+    alert("registered sucessfully")
 
   }
   

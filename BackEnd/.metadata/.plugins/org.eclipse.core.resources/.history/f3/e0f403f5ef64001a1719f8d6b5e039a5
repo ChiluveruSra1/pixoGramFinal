@@ -1,0 +1,25 @@
+server:
+  port: 8002
+#spring:
+#  h2:
+#    console:
+#      path: /pixo-console
+#      enabled: true
+#      settings:
+#        web-allow-others: true
+        
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/pixoGram
+    username: root
+    password: welcome
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true
+    
+  application:
+    name: media-service
+    
+   

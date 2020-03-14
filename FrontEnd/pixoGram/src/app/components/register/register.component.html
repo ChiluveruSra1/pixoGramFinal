@@ -1,4 +1,4 @@
-<div class="container-flex">
+<div class="container-flex" >
     <div class="row" style="margin-top: 30px;">
         <div class="col-lg-3" style="padding-top: 10px;">
             <li class="list-group-item" class="btn list-group-item" [routerLink]="['/login']">Login</li>
@@ -33,6 +33,7 @@
                                     required</small>
                                 <small *ngIf="registerForm.get('fname').errors?.required" class="text-danger">Name is
                                     required</small>
+                                    <small *ngIf="registerForm.get('fname').errors?.pattern" class="text-danger">First alphabet should be CAPITAL</small>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
@@ -50,6 +51,7 @@
                                     required</small>
                                 <small *ngIf="registerForm.get('lname').errors?.required" class="text-danger">Name is
                                     required</small>
+                                    <small *ngIf="registerForm.get('fname').errors?.pattern" class="text-danger">First alphabet should be CAPITAL</small>
                             </div>
                         </div>
 
@@ -87,8 +89,7 @@
                                 class="form-control" placeholder="" required />
 
                             <div id="label1" *ngIf="registerForm.get('dob').invalid && registerForm.get('dob').touched">
-                                <small *ngIf="registerForm.get('dob').errors?.required" class="text-danger">User Name is
-                                    required</small>
+                                <small *ngIf="registerForm.get('dob').errors?.required" class="text-danger">DOB is required</small>
                             </div>
 
                         </div>
@@ -155,7 +156,7 @@
                         </div>
 
                     </div>
-                    <button [disabled]="!registerForm.valid"  class="btn btn-warning">
+                    <button [disabled]="!registerForm.valid"  class="btn" style="color: crimson; background-color: darkcyan;">
                         Register
                     </button>
 

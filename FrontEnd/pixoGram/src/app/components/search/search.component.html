@@ -14,14 +14,15 @@
   </div>
   </div>
 
-  <div class="col-9" >
+  <div class="col-6" >
     <form >
-    <div style="width: 50vw; text-align: center;">
-      <input class="form-control" #username type="text" placeholder="Search"
-             aria-label="Search"/> 
+    <div style="width: 30vw; text-align: center;">
+      <p *ngIfThen="isDisabled; then: searchResult; else: noResult"></p>   
+      <input class="form-control" #username type="text" placeholder="Search" 
+             aria-label="Search" (keyup)="searchResult==false" (keyup)="noResult==true"/> 
             </div>  
-            <p *ngIfThen="isDisabled; then: searchResult; else: noResult"></p>            
-      <button class="btn btn-primary" (click)="searchUser(username.value)" (click)="searchResult==true" (click)="noResult==true">Search</button>
+                     
+      <button class="btn" style="background-color: darkcyan; color: crimson;" (click)="searchUser(username.value)" (click)="searchResult==true" (click)="noResult==true"><b>Search</b></button>
     </form>
 
 
@@ -58,7 +59,7 @@
 
         <div class="card" style="width: 16rem; margin: 15px;" >
         <!-- </div>*ngFor="let p of media">    -->
-        <h5>No profile with that name</h5>
+        <h5>Search for user by Username</h5>
             
         </div>
     </div>
@@ -89,7 +90,7 @@
         <!-- </div>*ngFor="let p of media">    -->
 
             <div style="height: 280px;"><br>
-                <img class="card-img-top" src="{{ user.profilepic }}" alt="Profile pic" width="50" height="250">
+                <img class="card-img-top" src="{{ user.profilepic }}" onerror="this.onerror=null; this.src=''";  alt="no user found" width="50" height="250">
        
             </div>
             <div class="card-body">

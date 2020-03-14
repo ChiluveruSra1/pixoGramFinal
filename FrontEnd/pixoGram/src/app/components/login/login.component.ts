@@ -41,8 +41,7 @@ export class LoginComponent implements OnInit {
   onlogin(data) {
 
     console.log(data.userName1)
-
-  
+      
     this.userService.getLoginByName(data.userName1).subscribe((login) => {console.log(login)
     this.loginuser=JSON.parse(JSON.stringify(login))
     console.log(this.loginuser)
@@ -54,11 +53,18 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem("userpic",this.loginuser.profilepic);
       sessionStorage.setItem("userid",this.loginuser.id);
       sessionStorage.setItem("username",this.loginuser.username);
+      alert("Welcome " + this.loginuser.username)
+      window.location.reload()
       this.router.navigate(['/newsfeed']);
+      
     }
+    
+   
   
     },
-    error => console.log(error),() => { console.log("completed") }
+    error => console.log(error),() => { 
+      
+      console.log("completed") }
     );
      
   }

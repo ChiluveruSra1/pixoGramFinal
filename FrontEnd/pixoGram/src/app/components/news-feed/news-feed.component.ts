@@ -66,8 +66,10 @@ export class NewsFeedComponent implements OnInit {
 
 
   logout(){
+    alert("Bye " + sessionStorage.getItem("username"))
     sessionStorage.clear();
     console.log("logout")
+    window.location.reload()
   }
 
 

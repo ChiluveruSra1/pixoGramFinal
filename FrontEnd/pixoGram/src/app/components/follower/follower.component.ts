@@ -32,7 +32,7 @@ export class FollowerComponent implements OnInit {
     for(let i=0;this.fllwmodel.length;i++){
       console.log(this.fllwmodel[i].userid)
 
-      this.uploadService.getUserMedia(Number(this.fllwmodel[i].userid)).subscribe(
+      this.uploadService.getUserMedia(Number(this.fllwmodel[i].myid)).subscribe(
         src => {
           console.log(src);
           this.media = src;

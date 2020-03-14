@@ -1,7 +1,0 @@
-package com.example.demo.controller;
-
-@CrossOrigin(origins = "http://localhost:4200")
-@RestController
-public class UserController {
-
-}

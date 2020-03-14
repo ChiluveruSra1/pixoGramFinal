@@ -9,9 +9,9 @@ import { UpdateModel } from '../models/update.model';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:8021/user';
+  private baseUrl = 'http://localhost:8001/pixo/user';
 
-  private followUrl='http://localhost:8023/follow'
+  private followUrl='http://localhost:8003/pixo/follow'
 
   constructor(private http: HttpClient) { }
   
@@ -46,11 +46,11 @@ export class UserService {
   }
 
   getFollowing(userid: number): Observable<Object>{
-    return this.http.get(`http://localhost:8023/follow/following/`+`${userid}`)
+    return this.http.get(`http://localhost:8003/pixo/follow/following/`+`${userid}`)
   }
 
   getFollower(userid: number): Observable<Object>{
-    return this.http.get(`http://localhost:8023/follow/follower/`+`${userid}`)
+    return this.http.get(`http://localhost:8003/pixo/follow/follower/`+`${userid}`)
   }
  
   updateUser(user: UpdateModel,userid:number): Observable<Object> {

@@ -12,8 +12,12 @@ import { UpdateModel } from 'src/app/models/update.model';
 export class AccountDetailsComponent implements OnInit {
 
   logout(){
+    
+    alert("Bye " + sessionStorage.getItem("username"))
     sessionStorage.clear();
     console.log("logout")
+    window.location.reload()
+
   }
 
   registerSuccess = false;
